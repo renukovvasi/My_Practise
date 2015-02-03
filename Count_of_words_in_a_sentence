@@ -1,8 +1,12 @@
 
 begin
-name = "hello i am renu"
+name = "hello i am renu hello renu"
 puts name
 print name.length
-puts name.split(' ')
-
+name1= name.split
+name1.each
+{
+|word|
+puts name1.count(word)
+}
 end
