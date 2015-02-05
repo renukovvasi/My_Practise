@@ -1,0 +1,40 @@
+begin
+movie =Hash["renu"=>3,"raj"=>5, "raaki"=>2]
+puts "enter add to add"
+puts "enter update to update"
+put "enter delete to delete"
+choice = gets.chomp.downcase
+case choice
+when 'add'
+puts "enter name"
+name=gets.chomp
+if (movie.key?(name)) then
+    puts"movie already exists"
+    value=movie.values_at(name)
+    puts value
+else 
+    puts "rate the movie"
+    rate=gets.chomp
+    movie.store(name,rate)
+end
+puts movie 
+when 'update'
+ puts "enter name"
+ name=gets.chomp
+ if (movie.key?(name)) then
+puts"rate the name"
+rate=gets.chomp
+movie.store(name,rate)
+else puts "name not found"
+end
+puts movie
+when 'delete'
+puts "enter name to be deleted"
+name=gets.chomp
+movie.delete_if{|key,value| 
+    name==key
+}
+puts movie
+end
+
+end
