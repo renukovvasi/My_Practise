@@ -1,12 +1,19 @@
 
-begin
-name = "hello i am renu hello renu"
-puts name
-print name.length
-name1= name.split
-name1.each
-{
-|word|
-puts name1.count(word)
-}
+#Program to print number of occurences of a word in a given sentence
+begin 
+name= "Hello am Ruby! Hello I am Ruby! Hello renuka and I love ruby!";   #Given Sentence
+name1=name.split                                                         #convert string to array
+for i in 0...(name1.length)                                              #outer loop
+    f_element= name1.at(i)                                               #first element in string
+    break if (f_element==nil)                                            #break the outer loop if the element is null
+    count=1
+       for j in 1...(name1.length)                               #inner loop runs every time and compares with outer loop element
+         n_element=name1.at(j+i)                                         #next element in a string
+         if(n_element==f_element) then 
+              count=count+1                                              #count increments when two elements are same
+              name1.delete_at(i+j)
+         end
+       end
+   puts  "#{f_element}",count
+end 
 end
