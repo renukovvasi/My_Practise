@@ -1,8 +1,8 @@
 begin
 movie =Hash["renu"=>3,"raj"=>5, "raaki"=>2]
-puts "enter add to add"
-puts "enter update to update"
-put "enter delete to delete"
+puts "enter add to add new movie name"
+puts "enter update to update a movie name"
+puts"enter delete to delete a movie name"
 choice = gets.chomp.downcase
 case choice
 when 'add'
@@ -17,6 +17,7 @@ else
     rate=gets.chomp
     movie.store(name,rate)
 end
+puts "the new added movie is : #{name} with rating #{rate}"
 puts movie 
 when 'update'
  puts "enter name"
@@ -31,10 +32,12 @@ puts movie
 when 'delete'
 puts "enter name to be deleted"
 name=gets.chomp
+if (movie.key?(name)) then
 movie.delete_if{|key,value| 
     name==key
 }
+else puts "name not found"
+end
 puts movie
 end
-
 end
